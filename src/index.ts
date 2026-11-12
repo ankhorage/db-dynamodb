@@ -4,5 +4,7 @@ export type {
   DynamoDbAdapter,
   DynamoDbAdapterConfig,
   DynamoDbAdapterLifecycle,
+  DynamoDbCommandTransport,
+  DynamoDbIndex,
   DynamoDbTable,
 } from './features/dynamodb/types.js';

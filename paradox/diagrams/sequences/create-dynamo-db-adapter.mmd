@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_createDynamoDbAdapter as createDynamoDbAdapter
+  participant participant_validateConfig as validateConfig
+  participant participant_validateIndex as validateIndex
+  participant_createDynamoDbAdapter->>participant_validateConfig: validateConfig()
+  participant_validateConfig->>participant_validateIndex: validateIndex()
+  participant_validateIndex-->>participant_validateConfig: return
+  participant_validateConfig-->>participant_createDynamoDbAdapter: return

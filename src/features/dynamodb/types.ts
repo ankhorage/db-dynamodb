@@ -3,7 +3,6 @@ import type { DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
 import type {
   DeleteCommand,
   DeleteCommandOutput,
-  DynamoDBDocumentClient,
   GetCommand,
   GetCommandOutput,
   PutCommand,
@@ -14,18 +13,25 @@ import type {
   UpdateCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
 
-/** Maps one portable collection name to a DynamoDB table and queryable key. */
+/** Maps an optional DynamoDB query index without changing a table's physical key. */
+export interface DynamoDbIndex {
+  readonly name: string;
+  readonly partitionKey: string;
+  readonly sortKey?: string;
+}
+
+/** Maps one portable collection name to its physical DynamoDB table key and optional query index. */
 export interface DynamoDbTable {
   readonly name: string;
   readonly partitionKey: string;
   readonly sortKey?: string;
-  readonly indexName?: string;
+  readonly index?: DynamoDbIndex;
 }
 
 /** Supplies explicit table and client ownership configuration for the DynamoDB adapter. */
 export interface DynamoDbAdapterConfig {
   readonly tables: Readonly<Record<string, DynamoDbTable>>;
-  readonly client?: DynamoDBDocumentClient;
+  readonly client?: DynamoDbCommandTransport;
   readonly clientConfig?: DynamoDBClientConfig;
 }
 
@@ -36,11 +42,8 @@ export interface DynamoDbCommandTransport {
   send(command: UpdateCommand): Promise<UpdateCommandOutput>;
   send(command: DeleteCommand): Promise<DeleteCommandOutput>;
   send(command: QueryCommand): Promise<QueryCommandOutput>;
+  destroy?(): void;
 }
-
-/** Unites the AWS commands issued by this adapter. */
-export type DynamoDbCommand =
-  GetCommand | PutCommand | UpdateCommand | DeleteCommand | QueryCommand;
 
 /** Exposes lifecycle ownership alongside the portable database adapter. */
 export interface DynamoDbAdapterLifecycle {
@@ -50,5 +53,3 @@ export interface DynamoDbAdapterLifecycle {
 
 /** Defines the complete DynamoDB adapter surface. */
 export type DynamoDbAdapter = DbAdapter & DynamoDbAdapterLifecycle;
-
-/** Defines a factory accepted AWS client constructor. */

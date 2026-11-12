@@ -1,0 +1,30 @@
+graph TD
+  package__ankhorage_db_dynamodb["@ankhorage/db-dynamodb"]
+  entrypoint_src_index_ts["src/index.ts"]
+  package__ankhorage_db_dynamodb --> entrypoint_src_index_ts
+  module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts["src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"]
+  package__ankhorage_db_dynamodb -.-> module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts
+  module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts --> module_src_features_dynamodb_types_ts
+  module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts --> module_src_features_dynamodb_utils_dynamoDbKeys_ts
+  module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts --> module_src_features_dynamodb_utils_dynamoDbResult_ts
+  module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts --> module_src_features_dynamodb_utils_toDynamoDbQuery_ts
+  module_src_features_dynamodb_createDynamoDbAdapter_ts["src/features/dynamodb/createDynamoDbAdapter.ts"]
+  package__ankhorage_db_dynamodb -.-> module_src_features_dynamodb_createDynamoDbAdapter_ts
+  module_src_features_dynamodb_createDynamoDbAdapter_ts --> module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts
+  module_src_features_dynamodb_createDynamoDbAdapter_ts --> module_src_features_dynamodb_types_ts
+  module_src_features_dynamodb_types_ts["src/features/dynamodb/types.ts"]
+  package__ankhorage_db_dynamodb -.-> module_src_features_dynamodb_types_ts
+  module_src_features_dynamodb_utils_dynamoDbKeys_ts["src/features/dynamodb/utils/dynamoDbKeys.ts"]
+  package__ankhorage_db_dynamodb -.-> module_src_features_dynamodb_utils_dynamoDbKeys_ts
+  module_src_features_dynamodb_utils_dynamoDbKeys_ts --> module_src_features_dynamodb_types_ts
+  module_src_features_dynamodb_utils_dynamoDbKeys_ts --> module_src_features_dynamodb_utils_dynamoDbResult_ts
+  module_src_features_dynamodb_utils_dynamoDbResult_ts["src/features/dynamodb/utils/dynamoDbResult.ts"]
+  package__ankhorage_db_dynamodb -.-> module_src_features_dynamodb_utils_dynamoDbResult_ts
+  module_src_features_dynamodb_utils_toDynamoDbQuery_ts["src/features/dynamodb/utils/toDynamoDbQuery.ts"]
+  package__ankhorage_db_dynamodb -.-> module_src_features_dynamodb_utils_toDynamoDbQuery_ts
+  module_src_features_dynamodb_utils_toDynamoDbQuery_ts --> module_src_features_dynamodb_types_ts
+  module_src_features_dynamodb_utils_toDynamoDbQuery_ts --> module_src_features_dynamodb_utils_dynamoDbResult_ts
+  module_src_index_ts["src/index.ts"]
+  module_test_index_test_ts["test/index.test.ts"]
+  package__ankhorage_db_dynamodb -.-> module_test_index_test_ts
+  module_test_index_test_ts --> module_src_index_ts
