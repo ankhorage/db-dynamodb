@@ -22,15 +22,35 @@ export const testStandalone = (): void => {
       private: true,
       type: 'module',
       dependencies: { '@ankhorage/db-dynamodb': `file:${tarball}` },
+      devDependencies: { typescript: '~6.0.3' },
     }),
   );
   const consumer = [
-    "import { createDynamoDbAdapter } from '@ankhorage/db-dynamodb';",
-    "const adapter = createDynamoDbAdapter({ tables: { records: { name: 'records', partitionKey: 'id' } }, client: { send: async () => ({}), destroy: () => {} } });",
-    "if (adapter.ownsClient) throw new Error('An injected client must remain caller-owned.');",
+    "import { createDynamoDbAdapter, type DynamoDbAdapterConfig } from '@ankhorage/db-dynamodb';",
+    "const configuration = { tables: { records: { name: 'records', partitionKey: 'id' } } } satisfies DynamoDbAdapterConfig;",
+    'const adapter = createDynamoDbAdapter(configuration);',
+    "if (!adapter.ownsClient) throw new Error('A created client must be adapter-owned.');",
     'await adapter.close();',
   ].join('\n');
+  writeFileSync(join(fixture, 'index.ts'), consumer);
+  writeFileSync(
+    join(fixture, 'tsconfig.json'),
+    JSON.stringify({
+      compilerOptions: {
+        module: 'NodeNext',
+        moduleResolution: 'NodeNext',
+        noEmit: true,
+        strict: true,
+        skipLibCheck: true,
+      },
+      include: ['index.ts'],
+    }),
+  );
   execFileSync('bun', ['install', '--ignore-scripts'], { cwd: fixture, stdio: 'inherit' });
+  execFileSync('bun', ['x', 'tsc', '--project', 'tsconfig.json'], {
+    cwd: fixture,
+    stdio: 'inherit',
+  });
   execFileSync('bun', ['--eval', consumer], { cwd: fixture, stdio: 'inherit' });
 };
 
