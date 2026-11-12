@@ -1,0 +1,281 @@
+[
+  {
+    "name": "createDynamoDbAdapter",
+    "title": null,
+    "description": "Creates a DynamoDB adapter with either caller-owned or adapter-owned AWS client lifecycle.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "value",
+    "modulePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+    "sourceLocation": {
+      "filePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+      "line": 8,
+      "column": 14
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DynamoDbAdapter",
+      "DynamoDbAdapterConfig"
+    ],
+    "signatures": [
+      {
+        "label": "(config: DynamoDbAdapterConfig) => DynamoDbAdapter",
+        "parameters": [
+          {
+            "name": "config",
+            "type": "DynamoDbAdapterConfig",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "DynamoDbAdapter",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DynamoDbAdapter",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/features/dynamodb/types.ts",
+    "sourceLocation": {
+      "filePath": "src/features/dynamodb/types.ts",
+      "line": 55,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "DynamoDbAdapterConfig",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/features/dynamodb/types.ts",
+    "sourceLocation": {
+      "filePath": "src/features/dynamodb/types.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DynamoDbCommandTransport",
+      "DynamoDbTable"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "client",
+        "kind": "property",
+        "type": "DynamoDbCommandTransport",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "clientConfig",
+        "kind": "property",
+        "type": "DynamoDBClientConfig",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "tables",
+        "kind": "property",
+        "type": "Readonly<Record<string, DynamoDbTable>>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DynamoDbAdapterLifecycle",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/features/dynamodb/types.ts",
+    "sourceLocation": {
+      "filePath": "src/features/dynamodb/types.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "close",
+        "kind": "method",
+        "type": "() => Promise<void>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ownsClient",
+        "kind": "property",
+        "type": "boolean",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DynamoDbCommandTransport",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/features/dynamodb/types.ts",
+    "sourceLocation": {
+      "filePath": "src/features/dynamodb/types.ts",
+      "line": 39,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "destroy",
+        "kind": "method",
+        "type": "() => void",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "send",
+        "kind": "method",
+        "type": "{ (command: GetCommand): Promise<GetCommandOutput>; (command: PutCommand): Promise<PutCommandOutput>; (command: UpdateCommand): Promise<UpdateCommandOutput>; (command: DeleteCommand): Promise<DeleteCommandOutput>; (command: QueryCommand): Promise<QueryCommandOutput>; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DynamoDbIndex",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/features/dynamodb/types.ts",
+    "sourceLocation": {
+      "filePath": "src/features/dynamodb/types.ts",
+      "line": 17,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "partitionKey",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sortKey",
+        "kind": "property",
+        "type": "string",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "DynamoDbTable",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/features/dynamodb/types.ts",
+    "sourceLocation": {
+      "filePath": "src/features/dynamodb/types.ts",
+      "line": 24,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "DynamoDbIndex"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "index",
+        "kind": "property",
+        "type": "DynamoDbIndex",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "partitionKey",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sortKey",
+        "kind": "property",
+        "type": "string",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  }
+]

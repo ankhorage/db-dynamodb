@@ -1,0 +1,1176 @@
+{
+  "packageName": "@ankhorage/db-dynamodb",
+  "packageId": "@ankhorage/db-dynamodb",
+  "description": "DynamoDB adapter for @ankhorage/contracts/db.",
+  "collaborators": null,
+  "donation": null,
+  "badges": [
+    {
+      "id": "license",
+      "label": "license",
+      "value": "MIT",
+      "color": "2563eb"
+    },
+    {
+      "id": "npm",
+      "label": "npm",
+      "value": "v0.1.0",
+      "color": "cb3837"
+    },
+    {
+      "id": "runtime",
+      "label": "runtime",
+      "value": "bun",
+      "color": "f59e0b"
+    },
+    {
+      "id": "typescript",
+      "label": "typescript",
+      "value": "strict",
+      "color": "2563eb"
+    },
+    {
+      "id": "eslint",
+      "label": "eslint",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "prettier",
+      "label": "prettier",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "build",
+      "label": "build",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "tests",
+      "label": "tests",
+      "value": "configured",
+      "color": "6f42c1"
+    },
+    {
+      "id": "docs",
+      "label": "paradox",
+      "value": "canonical",
+      "color": "0a7f3f"
+    }
+  ],
+  "usage": {
+    "packageName": "@ankhorage/db-dynamodb",
+    "command": "ankh db-dynamodb --help"
+  },
+  "usageEntries": [],
+  "exampleCount": 0,
+  "findings": [],
+  "config": null,
+  "entrypoints": [
+    "src/index.ts"
+  ],
+  "modules": [
+    {
+      "path": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/dynamodb/types.ts",
+        "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      ],
+      "exports": [
+        "DynamoDbAdapterImplementation"
+      ]
+    },
+    {
+      "path": "src/features/dynamodb/createDynamoDbAdapter.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts",
+        "src/features/dynamodb/types.ts"
+      ],
+      "exports": [
+        "createDynamoDbAdapter"
+      ]
+    },
+    {
+      "path": "src/features/dynamodb/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "DynamoDbAdapter",
+        "DynamoDbAdapterConfig",
+        "DynamoDbAdapterLifecycle",
+        "DynamoDbCommandTransport",
+        "DynamoDbIndex",
+        "DynamoDbTable"
+      ]
+    },
+    {
+      "path": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/dynamodb/types.ts",
+        "src/features/dynamodb/utils/dynamoDbResult.ts"
+      ],
+      "exports": [
+        "createDynamoDbKeyCondition",
+        "toExactDynamoDbKey",
+        "validateDynamoDbItemKey"
+      ]
+    },
+    {
+      "path": "src/features/dynamodb/utils/dynamoDbResult.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "failure",
+        "provider",
+        "success",
+        "unsupported"
+      ]
+    },
+    {
+      "path": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/dynamodb/types.ts",
+        "src/features/dynamodb/utils/dynamoDbResult.ts"
+      ],
+      "exports": [
+        "toDynamoDbQuery"
+      ]
+    },
+    {
+      "path": "src/index.ts",
+      "isEntrypoint": true,
+      "dependencies": [],
+      "exports": [
+        "createDynamoDbAdapter",
+        "DynamoDbAdapter",
+        "DynamoDbAdapterConfig",
+        "DynamoDbAdapterLifecycle",
+        "DynamoDbCommandTransport",
+        "DynamoDbIndex",
+        "DynamoDbTable"
+      ]
+    },
+    {
+      "path": "test/index.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/index.ts"
+      ],
+      "exports": []
+    }
+  ],
+  "exports": [
+    {
+      "name": "createDynamoDbAdapter",
+      "title": null,
+      "description": "Creates a DynamoDB adapter with either caller-owned or adapter-owned AWS client lifecycle.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+        "line": 8,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DynamoDbAdapter",
+        "DynamoDbAdapterConfig"
+      ],
+      "signatures": [
+        {
+          "label": "(config: DynamoDbAdapterConfig) => DynamoDbAdapter",
+          "parameters": [
+            {
+              "name": "config",
+              "type": "DynamoDbAdapterConfig",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "DynamoDbAdapter",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DynamoDbAdapter",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/features/dynamodb/types.ts",
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/types.ts",
+        "line": 55,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "DynamoDbAdapterConfig",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/dynamodb/types.ts",
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/types.ts",
+        "line": 32,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DynamoDbCommandTransport",
+        "DynamoDbTable"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "client",
+          "kind": "property",
+          "type": "DynamoDbCommandTransport",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "clientConfig",
+          "kind": "property",
+          "type": "DynamoDBClientConfig",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "tables",
+          "kind": "property",
+          "type": "Readonly<Record<string, DynamoDbTable>>",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DynamoDbAdapterLifecycle",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/dynamodb/types.ts",
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/types.ts",
+        "line": 49,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "close",
+          "kind": "method",
+          "type": "() => Promise<void>",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "ownsClient",
+          "kind": "property",
+          "type": "boolean",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DynamoDbCommandTransport",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/dynamodb/types.ts",
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/types.ts",
+        "line": 39,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "destroy",
+          "kind": "method",
+          "type": "() => void",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "send",
+          "kind": "method",
+          "type": "{ (command: GetCommand): Promise<GetCommandOutput>; (command: PutCommand): Promise<PutCommandOutput>; (command: UpdateCommand): Promise<UpdateCommandOutput>; (command: DeleteCommand): Promise<DeleteCommandOutput>; (command: QueryCommand): Promise<QueryCommandOutput>; }",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DynamoDbIndex",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/dynamodb/types.ts",
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/types.ts",
+        "line": 17,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "partitionKey",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sortKey",
+          "kind": "property",
+          "type": "string",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "DynamoDbTable",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/dynamodb/types.ts",
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/types.ts",
+        "line": 24,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "DynamoDbIndex"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "index",
+          "kind": "property",
+          "type": "DynamoDbIndex",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "partitionKey",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sortKey",
+          "kind": "property",
+          "type": "string",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    }
+  ],
+  "components": [],
+  "sourceFunctions": [
+    {
+      "name": "createDynamoDbAdapter",
+      "description": "Creates a DynamoDB adapter with either caller-owned or adapter-owned AWS client lifecycle.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+        "line": 8,
+        "column": 14
+      }
+    },
+    {
+      "name": "validateConfig",
+      "description": "Validates configuration that must be unambiguous before any provider call.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+        "line": 16,
+        "column": 7
+      }
+    },
+    {
+      "name": "validateIndex",
+      "description": "Validates optional query-index mappings independently from physical table keys.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+        "line": 30,
+        "column": 7
+      }
+    },
+    {
+      "name": "createDynamoDbKeyCondition",
+      "description": "Builds a DynamoDB condition over every configured physical key attribute.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "line": 5,
+        "column": 14
+      }
+    },
+    {
+      "name": "toExactDynamoDbKey",
+      "description": "Extracts a complete physical primary key from equality filters.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "line": 17,
+        "column": 14
+      }
+    },
+    {
+      "name": "validateDynamoDbItemKey",
+      "description": "Rejects inserts that omit a configured physical primary-key attribute.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "line": 36,
+        "column": 14
+      }
+    },
+    {
+      "name": "physicalKeyFields",
+      "description": "Returns the configured physical attributes that identify one DynamoDB item.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "line": 48,
+        "column": 7
+      }
+    },
+    {
+      "name": "success",
+      "description": "Produces a successful portable result.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "line": 4,
+        "column": 14
+      }
+    },
+    {
+      "name": "failure",
+      "description": "Converts provider and validation failures into safe portable error categories.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "line": 10,
+        "column": 14
+      }
+    },
+    {
+      "name": "unsupported",
+      "description": "Creates a deterministic unsupported-operation error.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "line": 19,
+        "column": 14
+      }
+    },
+    {
+      "name": "provider",
+      "description": "Creates a safe provider failure without retaining the original provider error.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "line": 23,
+        "column": 14
+      }
+    },
+    {
+      "name": "toError",
+      "description": "Normalizes AWS failures without exposing provider messages, metadata, tokens, or stacks.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "line": 27,
+        "column": 7
+      }
+    },
+    {
+      "name": "toDynamoDbQuery",
+      "description": "Translates a bounded portable select into its DynamoDB key-condition request.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "line": 12,
+        "column": 14
+      }
+    },
+    {
+      "name": "validateQueryPage",
+      "description": "Rejects generic pagination and projection semantics DynamoDB cannot represent safely.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "line": 31,
+        "column": 7
+      }
+    },
+    {
+      "name": "validateQuerySort",
+      "description": "Rejects portable sorts that do not match the configured DynamoDB query key.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "line": 43,
+        "column": 7
+      }
+    },
+    {
+      "name": "createQueryCondition",
+      "description": "Creates a DynamoDB key condition only from configured partition and sort filters.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "line": 49,
+        "column": 7
+      }
+    },
+    {
+      "name": "toDynamoOperator",
+      "description": "Maps portable range-filter operators to DynamoDB key-condition syntax.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "line": 82,
+        "column": 7
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "createDynamoDbAdapter",
+      "sourcePath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+      "symbolName": "createDynamoDbAdapter",
+      "description": "Creates a DynamoDB adapter with either caller-owned or adapter-owned AWS client lifecycle.",
+      "isReadme": false
+    }
+  ],
+  "graphs": {
+    "imports": [
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/dynamodb/types.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "test/index.test.ts",
+        "toPath": "src/index.ts",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+        "toPath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts",
+        "sourcePath": "src/features/dynamodb/createDynamoDbAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/createDynamoDbAdapter.ts",
+        "toPath": "src/features/dynamodb/types.ts",
+        "sourcePath": "src/features/dynamodb/createDynamoDbAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts",
+        "toPath": "src/features/dynamodb/types.ts",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts",
+        "toPath": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts",
+        "toPath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts",
+        "toPath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "toPath": "src/features/dynamodb/types.ts",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbKeys.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/utils/dynamoDbKeys.ts",
+        "toPath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbKeys.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "toPath": "src/features/dynamodb/types.ts",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromPath": "src/features/dynamodb/utils/toDynamoDbQuery.ts",
+        "toPath": "src/features/dynamodb/utils/dynamoDbResult.ts",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "createAdapter",
+        "toSymbol": "createDynamoDbAdapter",
+        "callExpression": "createDynamoDbAdapter",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromSymbol": "test/index.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromSymbol": "test/index.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromSymbol": "test/index.test.ts",
+        "toSymbol": "createDynamoDbAdapter",
+        "callExpression": "createDynamoDbAdapter",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromSymbol": "test/index.test.ts",
+        "toSymbol": "createAdapter",
+        "callExpression": "createAdapter",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromSymbol": "test/index.test.ts",
+        "toSymbol": "awsError",
+        "callExpression": "awsError",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromSymbol": "test/index.test.ts",
+        "toSymbol": "close",
+        "callExpression": "adapter.close",
+        "sourcePath": "test/index.test.ts"
+      },
+      {
+        "fromSymbol": "createDynamoDbAdapter",
+        "toSymbol": "validateConfig",
+        "callExpression": "validateConfig",
+        "sourcePath": "src/features/dynamodb/createDynamoDbAdapter.ts"
+      },
+      {
+        "fromSymbol": "validateConfig",
+        "toSymbol": "validateIndex",
+        "callExpression": "validateIndex",
+        "sourcePath": "src/features/dynamodb/createDynamoDbAdapter.ts"
+      },
+      {
+        "fromSymbol": "close",
+        "toSymbol": "destroy",
+        "callExpression": "this.client.destroy",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "table",
+        "callExpression": "this.table",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "send",
+        "callExpression": "this.client.send",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "toDynamoDbQuery",
+        "callExpression": "toDynamoDbQuery",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "select",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "table",
+        "callExpression": "this.table",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "send",
+        "callExpression": "this.client.send",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "findById",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "table",
+        "callExpression": "this.table",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "validateDynamoDbItemKey",
+        "callExpression": "validateDynamoDbItemKey",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "createDynamoDbKeyCondition",
+        "callExpression": "createDynamoDbKeyCondition",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "send",
+        "callExpression": "this.client.send",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "insert",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "table",
+        "callExpression": "this.table",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "toExactDynamoDbKey",
+        "callExpression": "toExactDynamoDbKey",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "createDynamoDbKeyCondition",
+        "callExpression": "createDynamoDbKeyCondition",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "updateExpression",
+        "callExpression": "this.updateExpression",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "send",
+        "callExpression": "this.client.send",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "provider",
+        "callExpression": "provider",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "update",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "table",
+        "callExpression": "this.table",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "toExactDynamoDbKey",
+        "callExpression": "toExactDynamoDbKey",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "createDynamoDbKeyCondition",
+        "callExpression": "createDynamoDbKeyCondition",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "send",
+        "callExpression": "this.client.send",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "provider",
+        "callExpression": "provider",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "success",
+        "callExpression": "success",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "delete",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "table",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "updateExpression",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"
+      },
+      {
+        "fromSymbol": "createDynamoDbKeyCondition",
+        "toSymbol": "physicalKeyFields",
+        "callExpression": "physicalKeyFields",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbKeys.ts"
+      },
+      {
+        "fromSymbol": "toExactDynamoDbKey",
+        "toSymbol": "physicalKeyFields",
+        "callExpression": "physicalKeyFields",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbKeys.ts"
+      },
+      {
+        "fromSymbol": "toExactDynamoDbKey",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbKeys.ts"
+      },
+      {
+        "fromSymbol": "validateDynamoDbItemKey",
+        "toSymbol": "physicalKeyFields",
+        "callExpression": "physicalKeyFields",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbKeys.ts"
+      },
+      {
+        "fromSymbol": "validateDynamoDbItemKey",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbKeys.ts"
+      },
+      {
+        "fromSymbol": "failure",
+        "toSymbol": "toError",
+        "callExpression": "toError",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbResult.ts"
+      },
+      {
+        "fromSymbol": "unsupported",
+        "toSymbol": "provider",
+        "callExpression": "provider",
+        "sourcePath": "src/features/dynamodb/utils/dynamoDbResult.ts"
+      },
+      {
+        "fromSymbol": "toDynamoDbQuery",
+        "toSymbol": "validateQueryPage",
+        "callExpression": "validateQueryPage",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromSymbol": "toDynamoDbQuery",
+        "toSymbol": "validateQuerySort",
+        "callExpression": "validateQuerySort",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromSymbol": "toDynamoDbQuery",
+        "toSymbol": "createQueryCondition",
+        "callExpression": "createQueryCondition",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromSymbol": "validateQueryPage",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromSymbol": "validateQuerySort",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromSymbol": "createQueryCondition",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromSymbol": "createQueryCondition",
+        "toSymbol": "toDynamoOperator",
+        "callExpression": "toDynamoOperator",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      },
+      {
+        "fromSymbol": "toDynamoOperator",
+        "toSymbol": "unsupported",
+        "callExpression": "unsupported",
+        "sourcePath": "src/features/dynamodb/utils/toDynamoDbQuery.ts"
+      }
+    ],
+    "typeReferences": [
+      {
+        "fromSymbol": "createDynamoDbAdapter",
+        "toType": "DynamoDbAdapter",
+        "sourcePath": "src/features/dynamodb/createDynamoDbAdapter.ts"
+      },
+      {
+        "fromSymbol": "createDynamoDbAdapter",
+        "toType": "DynamoDbAdapterConfig",
+        "sourcePath": "src/features/dynamodb/createDynamoDbAdapter.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbAdapterConfig",
+        "toType": "DynamoDBClientConfig",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbAdapterConfig",
+        "toType": "DynamoDbCommandTransport",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbAdapterConfig",
+        "toType": "DynamoDbTable",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbAdapterConfig",
+        "toType": "Readonly",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "DeleteCommand",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "DeleteCommandOutput",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "GetCommand",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "GetCommandOutput",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "PutCommand",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "PutCommandOutput",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "QueryCommand",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "QueryCommandOutput",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "UpdateCommand",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbCommandTransport",
+        "toType": "UpdateCommandOutput",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      },
+      {
+        "fromSymbol": "DynamoDbTable",
+        "toType": "DynamoDbIndex",
+        "sourcePath": "src/features/dynamodb/types.ts"
+      }
+    ],
+    "componentComposition": []
+  }
+}

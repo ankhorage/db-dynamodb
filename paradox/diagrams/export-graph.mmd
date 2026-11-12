@@ -1,0 +1,28 @@
+graph LR
+  module_src_features_dynamodb_adapters_DynamoDbAdapterImplementation_ts["src/features/dynamodb/adapters/DynamoDbAdapterImplementation.ts"]
+  module_src_features_dynamodb_createDynamoDbAdapter_ts["src/features/dynamodb/createDynamoDbAdapter.ts"]
+  module_src_features_dynamodb_types_ts["src/features/dynamodb/types.ts"]
+  module_src_features_dynamodb_utils_dynamoDbKeys_ts["src/features/dynamodb/utils/dynamoDbKeys.ts"]
+  module_src_features_dynamodb_utils_dynamoDbResult_ts["src/features/dynamodb/utils/dynamoDbResult.ts"]
+  module_src_features_dynamodb_utils_toDynamoDbQuery_ts["src/features/dynamodb/utils/toDynamoDbQuery.ts"]
+  module_src_index_ts["src/index.ts"]
+  module_test_index_test_ts["test/index.test.ts"]
+  export_createDynamoDbAdapter["createDynamoDbAdapter"]
+  module_src_features_dynamodb_createDynamoDbAdapter_ts --> export_createDynamoDbAdapter
+  export_createDynamoDbAdapter -.-> export_DynamoDbAdapter
+  export_createDynamoDbAdapter -.-> export_DynamoDbAdapterConfig
+  export_DynamoDbAdapter["DynamoDbAdapter"]
+  module_src_features_dynamodb_types_ts --> export_DynamoDbAdapter
+  export_DynamoDbAdapterConfig["DynamoDbAdapterConfig"]
+  module_src_features_dynamodb_types_ts --> export_DynamoDbAdapterConfig
+  export_DynamoDbAdapterConfig -.-> export_DynamoDbCommandTransport
+  export_DynamoDbAdapterConfig -.-> export_DynamoDbTable
+  export_DynamoDbAdapterLifecycle["DynamoDbAdapterLifecycle"]
+  module_src_features_dynamodb_types_ts --> export_DynamoDbAdapterLifecycle
+  export_DynamoDbCommandTransport["DynamoDbCommandTransport"]
+  module_src_features_dynamodb_types_ts --> export_DynamoDbCommandTransport
+  export_DynamoDbIndex["DynamoDbIndex"]
+  module_src_features_dynamodb_types_ts --> export_DynamoDbIndex
+  export_DynamoDbTable["DynamoDbTable"]
+  module_src_features_dynamodb_types_ts --> export_DynamoDbTable
+  export_DynamoDbTable -.-> export_DynamoDbIndex
