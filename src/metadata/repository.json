@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "kind": "adapter",
+  "title": "Ankhorage DynamoDB Adapter",
+  "summary": "Implements the portable Ankhorage database adapter contract with Amazon DynamoDB.",
+  "purpose": "Expose explicitly bounded DynamoDB persistence through the provider-neutral database contract without leaking AWS request shapes to consumers.",
+  "domain": "database persistence",
+  "responsibilities": [
+    "Translate portable select, find, insert, update, and delete operations into DynamoDB document commands.",
+    "Map logical collections to explicitly configured tables, physical keys, and optional query indexes.",
+    "Normalize provider and validation failures into safe portable database errors.",
+    "Manage the lifecycle only of AWS clients created by the adapter."
+  ],
+  "boundaries": [
+    "Does not provision DynamoDB tables, indexes, IAM policy, or AWS infrastructure.",
+    "Does not emulate relational joins, schemas, transactions, offset pagination, or arbitrary scans.",
+    "Does not own caller-provided AWS clients."
+  ],
+  "audience": [
+    "Applications that require DynamoDB through the portable Ankhorage database contract.",
+    "Infrastructure adapters that supply explicit DynamoDB table and client configuration."
+  ],
+  "useCases": [
+    "Query a bounded DynamoDB partition or configured secondary index.",
+    "Read, insert, update, or delete records by their configured physical keys.",
+    "Use a caller-owned client or let the adapter own and close its AWS client."
+  ],
+  "architecture": {
+    "role": "Provider adapter translating the portable DbAdapter boundary to AWS DynamoDB document operations.",
+    "invariants": [
+      "Every operation resolves through an explicit logical-table mapping.",
+      "Writes cannot silently change configured physical key attributes.",
+      "Unsupported DynamoDB representations fail explicitly instead of simulating relational behavior."
+    ]
+  },
+  "implements": [
+    {
+      "packageName": "@ankhorage/contracts",
+      "subpath": "./db",
+      "interfaceId": "DbAdapter"
+    }
+  ],
+  "constraints": {
+    "configuration": [
+      "Requires a non-empty mapping from logical collection names to DynamoDB tables and physical keys."
+    ],
+    "security": [
+      "Provider error payloads, metadata, tokens, and stacks are not retained in portable results."
+    ],
+    "limitations": [
+      "Transactions and realtime subscriptions are not supported.",
+      "Queries require a finite limit and reject results that need a continuation cursor.",
+      "Multi-item inserts, offset pagination, column projection, and schema-qualified tables are unsupported."
+    ]
+  }
+}
