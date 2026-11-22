@@ -42,7 +42,7 @@
     "@aws-sdk/lib-dynamodb": "^3.900.0"
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^2.4.3",
+    "@ankhorage/devtools": "^2.10.5",
     "@ankhorage/doctor": "0.14.35",
     "@ankhorage/paradox": "^0.3.6",
     "@types/bun": "^1.4.2",
